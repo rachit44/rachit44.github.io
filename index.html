@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachit Gupta - Senior Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            overflow-x: hidden;
+            background: #000000;
+        }
+
+        /* Animated Background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to bottom, #000000, #0a0520);
+            overflow: hidden;
+        }
+
+        /* Gradient Orbs */
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.6), transparent);
+            top: -15%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 150, 255, 0.5), transparent);
+            top: 40%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.4), transparent);
+            bottom: -15%;
+            left: 25%;
+            animation-delay: 10s;
+        }
+
+        .orb-4 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(75, 0, 130, 0.5), transparent);
+            top: 25%;
+            left: 45%;
+            animation-delay: 7s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) scale(1.15);
+            }
+            66% {
+                transform: translate(-30px, 30px) scale(0.85);
+            }
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            font-size: 14px;
+            color: rgba(138, 43, 226, 0.3);
+            font-family: 'Courier New', monospace;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* Matrix Rain Effect */
+        .matrix-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.15;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            color: #0096ff;
+            text-shadow: 0 0 8px #0096ff;
+            animation: matrixFall linear infinite;
+            white-space: pre;
+        }
+
+        @keyframes matrixFall {
+            0% {
+                top: -100%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        /* Floating Code Lines */
+        .code-line {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: rgba(100, 150, 255, 0.4);
+            white-space: nowrap;
+            animation: driftAcross linear infinite;
+        }
+
+        @keyframes driftAcross {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateX(100vw);
+                opacity: 0;
+            }
+        }
+
+        /* Glass effect container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #8a2be2, #0096ff, #ff0096);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            animation: gradientShift 5s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                filter: hue-rotate(20deg);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #b8b8ff;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .location {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            background: rgba(138, 43, 226, 0.3);
+            border-color: rgba(138, 43, 226, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, #b8b8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Experience Section */
+        .experience {
+            margin-bottom: 60px;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(138, 43, 226, 0.5);
+            transform: translateX(5px);
+        }
+
+        .timeline-item h3 {
+            color: #8a2be2;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item .company {
+            color: #0096ff;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item .role-period {
+            background: rgba(138, 43, 226, 0.15);
+            border-left: 3px solid #8a2be2;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .timeline-item .role-period h4 {
+            color: #ff0096;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .role-period .period {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-item li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            color: #d1d1d1;
+        }
+
+        .timeline-item li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #8a2be2;
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            margin-bottom: 60px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(138, 43, 226, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #ff0096;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(138, 43, 226, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #d1d1d1;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        /* Projects Section */
+        .projects {
+            margin-bottom: 60px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 150, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 150, 255, 0.3);
+        }
+
+        .project-card h3 {
+            color: #0096ff;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            color: #d1d1d1;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-links a {
+            padding: 10px 20px;
+            background: rgba(138, 43, 226, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background: rgba(138, 43, 226, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Achievements Section */
+        .achievements {
+            margin-bottom: 60px;
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 3px solid #ff0096;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .achievement-item p {
+            color: #d1d1d1;
+            line-height: 1.7;
+        }
+
+        .achievement-item .award-name {
+            color: #ff0096;
+            font-weight: 600;
+        }
+
+        /* Education Section */
+        .education {
+            margin-bottom: 60px;
+        }
+
+        .education-item {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .education-item h3 {
+            color: #8a2be2;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .education-item .university {
+            color: #0096ff;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .education-item .details {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: #d1d1d1;
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #8a2be2, #0096ff);
+            border-radius: 50px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="gradient-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+        
+        <!-- Matrix Rain Container -->
+        <div class="matrix-container" id="matrixContainer"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Rachit Gupta</h1>
+            <p class="subtitle">Senior Software Engineer</p>
+            <p class="location">Pune, India</p>
+            <p class="bio">Passionate backend engineer with 3+ years of experience building scalable APIs and distributed systems using Python, Django, and FastAPI. Skilled in optimizing performance, improving application security, and delivering customer-driven features. Proven track record in CI/CD automation, service monitoring, and reducing latency under high-load environments.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/rachit44" target="_blank">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/rachit-gupta-477b3611b" target="_blank">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:rachitgupta55555@gmail.com">
+                    <span>Email</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Experience Section -->
+        <section class="experience">
+            <h2>Experience</h2>
+            
+            <div class="timeline-item">
+                <h3>Software Engineer</h3>
+                <p class="company">Persistent Systems</p>
+                <p class="date">Jan 2022 - Present | Pune, India</p>
+                
+                <div class="role-period">
+                    <h4>Senior Software Engineer</h4>
+                    <p class="period">Jun 2024 - Present</p>
+                </div>
+                <ul>
+                    <li>Enhanced application security by migrating JWT authentication from symmetric (HS256) to asymmetric (RS256), integrating RSA key pair management for stronger security</li>
+                    <li>Developed RabbitMQ DLQ retry mechanism to recover failed jobs automatically, lowering overhead</li>
+                    <li>Developed backend APIs with FastAPI, accelerating internal tooling and ensuring strict data validation</li>
+                    <li>Optimized database access and API paths, achieving 15% reduction in p95 latency during high-load operations</li>
+                    <li>Resolved critical session and data inconsistency bugs across services, ensuring seamless user experience</li>
+                    <li>Implemented service monitoring with Datadog, enabling rapid issue detection and maintaining product service reliability</li>
+                    <li>Performed a major Rails upgrade and gem updates, achieving a 100% reduction in tracked service vulnerabilities</li>
+                </ul>
+
+                <div class="role-period">
+                    <h4>Software Engineer</h4>
+                    <p class="period">Jun 2022 - Jun 2024</p>
+                </div>
+                <ul>
+                    <li>Engineered CRUD RESTful APIs with Django for lock management, improving security and efficiency</li>
+                    <li>Designed and implemented a scalable, customizable workflow for user-defined steps, enhancing MDM adaptability</li>
+                    <li>Automated testing pipelines with Python and integrated into CI/CD (Jenkins, GitHub Actions) with structured logging</li>
+                    <li>Resolved complex scheduler module issues, improving recurring job accuracy and system reliability</li>
+                    <li>Built an audit history tracking API for MDM categories, ensuring complete item traceability</li>
+                    <li>Delivered 6+ customer-driven features and high-priority bug fixes across multiple releases, improving adoption</li>
+                    <li>Led code reviews enforcing DRY, SOLID principles and Django best practices, improving maintainability and consistency</li>
+                </ul>
+
+                <div class="role-period">
+                    <h4>Software Engineer Intern</h4>
+                    <p class="period">Jan 2022 - Jun 2022</p>
+                </div>
+                <ul>
+                    <li>Developed backend APIs in Django for real-world projects, using Git and relational databases while following clean coding practices</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python 3.x</span>
+                        <span class="skill-tag">Ruby</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Rails</span>
+                        <span class="skill-tag">Flask</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">IBM Db2</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Spinnaker</span>
+                        <span class="skill-tag">Datadog</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Practices</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TDD</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Recipe App</h3>
+                    <p>Created MVP using Django and GitHub Actions; implemented user authentication and CRUD operations for recipes with automated testing pipelines.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/rachit44" target="_blank">View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Python Interview Prep</h3>
+                    <p>Built platform using Django + FastAPI to help practice DSA and Python interview questions with real-time feedback and progress tracking.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/rachit44" target="_blank">View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Certification Quiz Platform</h3>
+                    <p>Semicolon Hackathon winner: Built a Python/Django-based certification quiz platform for developer upskilling with dynamic quiz generation and certificate management.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/rachit44" target="_blank">View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>LeetCode Solutions</h3>
+                    <p>Collection of optimized solutions to coding challenges, demonstrating problem-solving skills and algorithmic thinking across various difficulty levels.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/rachit44" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="achievements">
+            <h2>Awards & Recognition</h2>
+            <div class="achievement-item">
+                <p><span class="award-name">Bravo Team Awards</span> (Jun & Sep 2024) - Recognized for impactful delivery and consistent excellence in team projects</p>
+            </div>
+            <div class="achievement-item">
+                <p><span class="award-name">Individual Excellence Award</span> (Feb 2023) - Awarded for fast onboarding and exceptional contributions to projects</p>
+            </div>
+            <div class="achievement-item">
+                <p><span class="award-name">Semicolon Hackathon Winner</span> - Persistent Systems internal hackathon for innovative developer upskilling platform</p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Technology in Computer Science</h3>
+                <p class="university">Shri Ram Institute of Technology, Jabalpur</p>
+                <p class="details">Jun 2018 - Jun 2022 | CGPA: 8.5</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in hearing about new opportunities and collaborations. Feel free to reach out!</p>
+            <a href="mailto:rachitgupta55555@gmail.com" class="contact-button">Get In Touch</a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Rachit Gupta. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const matrixContainer = document.getElementById('matrixContainer');
+        const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]()<>/\\|~`!@#$%^&*';
+        
+        function createMatrixColumn() {
+            const column = document.createElement('div');
+            column.className = 'matrix-column';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            column.style.opacity = Math.random() * 0.5 + 0.1;
+            
+            let text = '';
+            const height = Math.floor(Math.random() * 20 + 10);
+            for (let i = 0; i < height; i++) {
+                text += chars[Math.floor(Math.random() * chars.length)] + '\n';
+            }
+            column.textContent = text;
+            
+            matrixContainer.appendChild(column);
+            
+            setTimeout(() => {
+                column.remove();
+            }, parseFloat(column.style.animationDuration) * 1000);
+        }
+        
+        // Create matrix columns periodically
+        setInterval(createMatrixColumn, 400);
+        
+        // Create initial columns
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createMatrixColumn, i * 200);
+        }
+
+        // Create floating code snippets
+        const codeSnippets = [
+            'def optimize_query():',
+            'async function fetchData()',
+            'SELECT * FROM users',
+            'docker-compose up',
+            'git commit -m "feat"',
+            'pytest --cov',
+            'kubectl apply -f',
+            'import pandas as pd',
+            'const response = await',
+            'redis.get(key)',
+            'app.use(middleware)',
+            'raise Exception',
+            'return jsonify(data)',
+            'WHERE id = ?',
+            'FastAPI endpoint',
+            'Django ORM query',
+            'RabbitMQ message',
+            'JWT auth token'
+        ];
+
+        function createCodeLine() {
+            const line = document.createElement('div');
+            line.className = 'code-line';
+            line.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+            line.style.top = Math.random() * 100 + '%';
+            line.style.fontSize = (Math.random() * 8 + 10) + 'px';
+            line.style.animationDuration = (Math.random() * 20 + 15) + 's';
+            line.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.querySelector('.gradient-bg').appendChild(line);
+            
+            setTimeout(() => {
+                line.remove();
+            }, parseFloat(line.style.animationDuration) * 1000 + parseFloat(line.style.animationDelay) * 1000);
+        }
+
+        // Create code lines periodically
+        setInterval(createCodeLine, 3000);
+        
+        // Create initial code lines
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createCodeLine, i * 600);
+        }
+
+        // Create floating particles
+        const symbols = ['{ }', '[ ]', '< >', '( )', '++', '--', '=>', '!=', '==', '&&', '||', '...', 'API', 'SQL'];
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationName = 'floatUp';
+            particle.style.setProperty('--drift', (Math.random() * 200 - 100) + 'px');
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particle.style.fontSize = (Math.random() * 10 + 12) + 'px';
+            
+            document.querySelector('.gradient-bg').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, parseFloat(particle.style.animationDuration) * 1000 + parseFloat(particle.style.animationDelay) * 1000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+        
+        // Create initial particles
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createParticle, i * 400);
+        }
+    </script>
+</body>
+</html>
